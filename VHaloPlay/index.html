@@ -8,8 +8,41 @@
     <script src="lib/winjs-4.0.1/js/ui.js"></script>
     <link href="css/default.css" rel="stylesheet" />
     <script src="js/main.js"></script>
+    <script src="js/index.js"></script>
 </head>
 <body class="win-type-body">
-    <div>Content goes here!</div>
+    <section>
+        <x-ms-webview id="videoPlayer" class="videoPlayer" src="https://www.youtube.com" height="480" width="640"></x-ms-webview>
+    </section>
+    <section>
+        <div id="appBar" data-win-control="WinJS.UI.AppBar" data-win-options="">
+            <button data-win-control="WinJS.UI.AppBarCommand"
+                    data-win-options="{id:'cmdBackwardLarge', label:'Backward', icon:'previous', section:'primary', tooltip:'Move backward in large increments'}"></button>
+            <button data-win-control="WinJS.UI.AppBarCommand"
+                    data-win-options="{id:'cmdBackwardSmall', label:'Backward', icon:'back', section:'primary', tooltip:'Move backward in small increments'}"></button>
+            <button data-win-control="WinJS.UI.AppBarCommand"
+                    data-win-options="{id:'cmdBackwardMicro', label:'Backward', icon:'import', section:'primary', tooltip:'Move backward in very small increments'}"></button>
+            <hr data-win-control="WinJS.UI.AppBarCommand"
+                data-win-options="{type:'separator',section:'primary'}" />
+            <button data-win-control="WinJS.UI.AppBarCommand"
+                    data-win-options="{id: 'flyout',icon: 'camera',label: 'Video',type: 'flyout',flyout: select('#videoIdFlyout')}"></button>
+            <hr data-win-control="WinJS.UI.AppBarCommand"
+                data-win-options="{type:'separator',section:'primary'}" />
+            <button data-win-control="WinJS.UI.AppBarCommand"
+                    data-win-options="{id:'cmdPlay', label:'Play', icon:'play', section:'primary', tooltip:'Play video'}"></button>
+            <hr data-win-control="WinJS.UI.AppBarCommand"
+                data-win-options="{type:'separator',section:'primary'}" />
+            <button data-win-control="WinJS.UI.AppBarCommand"
+                    data-win-options="{id:'cmdForwardMicro', label:'Forward', icon:'forward', section:'primary', tooltip:'Move forward in very small increments'}"></button>
+            <button data-win-control="WinJS.UI.AppBarCommand"
+                    data-win-options="{id:'cmdForwardSmall', label:'Forward', icon:'send', section:'primary', tooltip:'Move forward in small increments'}"></button>
+            <button data-win-control="WinJS.UI.AppBarCommand"
+                    data-win-options="{id:'cmdForwardLarge', label:'Forward', icon:'next', section:'primary', tooltip:'Move forward in large increments'}"></button>
+        </div>
+        <div id="videoIdFlyout"
+             data-win-control="WinJS.UI.Flyout">
+            <h3>Video ID</h3> <input id="videoId" type="text" value="UkWd0azv3fQ" />
+        </div>
+    </section>
 </body>
 </html>
